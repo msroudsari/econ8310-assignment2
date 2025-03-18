@@ -1,5 +1,5 @@
 import pandas as pd
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.tree import DecisionTreeClassifier
 
 train_data = pd.read_csv("https://github.com/dustywhite7/Econ8310/raw/master/AssignmentData/assignment3.csv")
 test_data = pd.read_csv("https://github.com/dustywhite7/Econ8310/raw/master/AssignmentData/assignment3test.csv")
@@ -10,7 +10,7 @@ y_train = train_data["meal"]
 
 X_test = test_data.drop(columns=['id','DateTime','meal'])
 
-model = RandomForestClassifier(n_estimators=200, max_depth=8, random_state=42)
+model = DecisionTreeClassifier(max_depth=180, min_samples_leaf=8)
 
 modelFit = model.fit(X_train, y_train)
 
