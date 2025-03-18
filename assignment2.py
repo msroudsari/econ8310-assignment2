@@ -15,5 +15,4 @@ model = DecisionTreeClassifier(max_depth=180, min_samples_leaf=8)
 modelFit = model.fit(X_train, y_train)
 
 pred = modelFit.predict(X_test)
-pred = pred.astype(int)
-pred = pred.tolist()
+pred = [int(i) for i in pred]
